@@ -7,6 +7,7 @@ import TeamLeadCreationForm from "./TeamLeadCreate";
 import BDMCreationForm from "./BDMCreationForm";
 import DigitalMarketingTeamForm from "./DigitalMarketingCreate";
 import AccountantManagement from "./AccountantManagement";
+import Navbar from "../admin/Navbar";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -49,6 +50,7 @@ const HRDashboard = () => {
 
   return (
     <Layout hasSider>
+      <Navbar/>
       <Sider style={siderStyle}>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]} items={items} />
       </Sider>

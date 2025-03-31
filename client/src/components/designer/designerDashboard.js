@@ -1,6 +1,4 @@
 
-
-
 import React from "react";
 import { Layout, Menu, Card, Row, Col, Statistic, theme } from "antd";
 import { Routes, Route, useNavigate } from "react-router-dom"; // Import for routing
@@ -52,6 +50,10 @@ const GraphicDesignerDashboard = () => {
           <Menu.Item key="/graphic_designer/designs" icon={<FileTextOutlined />}>
            Designs
           </Menu.Item>
+
+           <Menu.Item key="/" icon={<FileTextOutlined />}>
+                     Logout
+                    </Menu.Item>
           {/* <Menu.Item key="/digital_marketing/video_editor" icon={<FileTextOutlined />}>
            Video Editor
           </Menu.Item>

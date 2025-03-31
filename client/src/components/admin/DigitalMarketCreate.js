@@ -1,9 +1,9 @@
 
-
 // export default DigitalMarketerForm;
 import React, { useEffect, useState } from "react";
 import { Table, Button, Modal, Form, Input, notification } from "antd";
 import axios from "axios";
+import Navbar from "./Navbar";
 
 const DigitalMarketerManagementForm = () => {
   const [marketers, setMarketers] = useState([]);
@@ -91,7 +91,8 @@ const DigitalMarketerManagementForm = () => {
   ];
 
   return (
-    <div>
+    <div style={{padding:'80px'}}>
+      <Navbar/>
       <h2>Digital Marketer Management</h2>
       <Button type="primary" onClick={() => showModal()} style={{ marginBottom: 16 }}>
         Create New Digital Marketer

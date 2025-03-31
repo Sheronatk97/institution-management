@@ -10,6 +10,11 @@ import {
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import ConsultantPage from "./ConsultantPage";
 import CourseEnrollmentPage from "./Enroll";
+import StudentsAssign from "./StudentsAssign";
+import Attendance from "./Attendance";
+import LeaveRequestForm from "../students/LeaveRequestForm";
+import LeaveRequestPage from "./Leave";
+import Navbar from "../admin/Navbar";
 
 // import BDMManagement from "./BDMManagement";
 // import TeamLeaderPage from "./teamLeader";
@@ -45,10 +50,13 @@ const TeamLeadDashboard = () => {
   const menuItems = [
     { key: "1", icon: <UserOutlined />, label: "Associate Consultant", onClick: () => navigate("/team_lead/consultant") },
     { key: "2", icon: <BarChartOutlined />, label: "Course Enrolments", onClick: () => navigate("/team_lead/courseenrolments") },
+    { key: "3", icon: <BarChartOutlined />, label: "Students Assign", onClick: () => navigate("/team_lead/studentsassign") },
+    { key: "4", icon: <BarChartOutlined />, label: "Attendance", onClick: () => navigate("/team_lead/attendance") },
+    { key: "5", icon: <BarChartOutlined />, label: "Leaves", onClick: () => navigate("/team_lead/leave") },
     // { key: "3", icon: <DollarOutlined />, label: "Course", onClick: () => navigate("/bdm/course") },
     // { key: "3", icon: <DollarOutlined />, label: "Associate Consultant", onClick: () => navigate("/sales/associate_consultant") },
     // { key: "4", icon: <FileTextOutlined />, label: "Students", onClick: () => navigate("/sales/students") },
-    { key: "5", icon: <LogoutOutlined />, label: "Logout", onClick: handleLogout },
+    { key: "6", icon: <LogoutOutlined />, label: "Logout", onClick: handleLogout },
   ].map(({ icon, label, key, onClick }) => ({
     key,
     icon,
@@ -58,6 +66,7 @@ const TeamLeadDashboard = () => {
 
   return (
     <Layout hasSider>
+      <Navbar/>
       <Sider style={siderStyle}>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]} items={menuItems} />
       </Sider>
@@ -70,7 +79,7 @@ const TeamLeadDashboard = () => {
                 path="/"
                 element={
                   <>
-                    <h2>BDM Dashboard</h2>
+                    <h2>TeamLeader Dashboard</h2>
                     <Row gutter={16}>
                       <Col span={6}>
                         <Card bordered={false}>
@@ -98,6 +107,9 @@ const TeamLeadDashboard = () => {
               />
               <Route path="/team_lead/consultant" element={<ConsultantPage />} />
               <Route path="/team_lead/courseenrolments" element={<CourseEnrollmentPage/>} />
+              <Route path="/team_lead/studentsassign" element={<StudentsAssign/>} />
+              <Route path="/team_lead/attendance" element={<Attendance/>} />
+              <Route path="/team_lead/leave" element={<LeaveRequestPage/>} />
                {/* <Route path="/bdm/team_leader" element={<TeamLeaderPage/>} />
                <Route path="/bdm/course" element={<CoursePage/>} /> */}
              {/* <Route path="/sales/associate_consultant" element={<AssociateConsultantPage/>} />

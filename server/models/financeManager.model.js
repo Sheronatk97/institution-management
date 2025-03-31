@@ -11,28 +11,7 @@ const financeManagerSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-// financeManagerSchema.pre('save', async function (next) {
-//   if (!this.isModified('password')) {
-//     return next();
-//   }
-  
-//   const salt = await bcrypt.genSalt(10); // Salt rounds, can adjust
-//   this.password = await bcrypt.hash(this.password, salt); // Hash the password
-//   next();
-// });
 
-// financeManagerSchema.methods.matchPassword = async function (enteredPassword) {
-//   return await bcrypt.compare(enteredPassword, this.password);
-// };
-
-// financeManagerSchema.pre('save', async function (next) {
-//   if (!this.isModified('password')) {
-//     return next();
-//   }
-//   const salt = await bcrypt.genSalt(10);
-//   this.password = await bcrypt.hash(this.password, salt);
-//   next();
-// });
 
 const FinanceManager = mongoose.model('FinanceManager', financeManagerSchema);
 module.exports = FinanceManager;

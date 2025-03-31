@@ -15,6 +15,7 @@ import AssociateConsultantPage from "./associateConsultant";
 import StudentsPage from "./Student";
 import CoursePage from "./coursePage";
 import CourseEnrollmentPage from "../teamLead/Enroll";
+import Navbar from "../admin/Navbar";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -45,7 +46,7 @@ const SalesDashboard = () => {
     // { key: "1", icon: <UserOutlined />, label: "BDM", onClick: () => navigate("/sales/bdm") },
     { key: "2", icon: <BarChartOutlined />, label: "Team Leader", onClick: () => navigate("/bdm/team_leader") },
     { key: "3", icon: <DollarOutlined />, label: "Course", onClick: () => navigate("/bdm/course") },
-    { key: "4", icon: <DollarOutlined />, label: "Course", onClick: () => navigate("/bdm/courseenrollment") },
+    // { key: "4", icon: <DollarOutlined />, label: "Course", onClick: () => navigate("/bdm/courseenrollment") },
     // { key: "3", icon: <DollarOutlined />, label: "Associate Consultant", onClick: () => navigate("/sales/associate_consultant") },
     // { key: "4", icon: <FileTextOutlined />, label: "Students", onClick: () => navigate("/sales/students") },
     { key: "5", icon: <LogoutOutlined />, label: "Logout", onClick: handleLogout },
@@ -58,6 +59,7 @@ const SalesDashboard = () => {
 
   return (
     <Layout hasSider>
+      <Navbar/>
       <Sider style={siderStyle}>
         <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]} items={menuItems} />
       </Sider>

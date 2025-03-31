@@ -52,10 +52,6 @@ router.put("/update/:id", async (req, res) => {
       return res.status(404).json({ message: "Designer not found" });
     }
 
-    if (password) {
-      const salt = await bcrypt.genSalt(10);
-      req.body.password = await bcrypt.hash(password, salt);
-    }
 
     designer = await VideoEditor.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(designer);

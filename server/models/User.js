@@ -1,53 +1,28 @@
-// const mongoose = require('mongoose');
-// const bcrypt = require('bcryptjs');
 
-// const userSchema = new mongoose.Schema({
-//     username: { type: String, required: true },
-//     email: { type: String, required: true, unique: true },
-//     password: { type: String, required: true },
-//     role: { type: String, enum: ['student', 'admin', 'hr', 'digital_marketing'], required: true }
-// });
+const mongoose = require("mongoose");
+const bcrypt = require("bcryptjs");
 
-// // Password hashing before saving
-// userSchema.pre('save', async function(next) {
-//     if (!this.isModified('password')) return next();
-//     this.password = await bcrypt.hash(this.password, 10);
-//     next();
-// });
-
-// // Password comparison method
-// userSchema.methods.matchPassword = async function(enteredPassword) {
-//     return await bcrypt.compare(enteredPassword, this.password);
-// };
-
-// const User = mongoose.model('User', userSchema);
-// module.exports = User;
-
-
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-
-const userSchema = new mongoose.Schema({
-    username: { type: String, required: true },
+const userSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    phone: { type: String, required: true },
+    address: { type: String, required: true },
+    gender: { type: String, enum: ["Male", "Female"], required: true },
+    qualification: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    role: { type: String, enum: ['student', 'admin', 'hr', 'digital_marketing','finance_manager','bussiness_development_manager','team_leader','associate_consultant'], required: true }
-});
-
-// userSchema.pre('save', async function (next) {
-//     if (!this.isModified('password')) {
-//       return next();
-//     }
+    course: { type: mongoose.Schema.Types.ObjectId, ref: "Course", required: true },
+    idProof: { type: String },
+    dob: { type: String, required: true },
+    role: { type: String, required: true, default: "student" },
+    consultant: {  type: mongoose.Schema.Types.ObjectId, ref: "AssociateConsultant",   default: null },
+    slot: { type: String,  enum: ['Slot 1', 'Slot 2', 'Slot 3', 'Slot 4'], },
+    startDate: { type: String,  },
+    endDate: { type: String,  },
     
-//     const salt = await bcrypt.genSalt(10); // Salt rounds, can adjust
-//     this.password = await bcrypt.hash(this.password, salt); // Hash the password
-//     next();
-//   });
+  },
+  { timestamps: true }
+);
 
-// // Password comparison method
-// userSchema.methods.matchPassword = async function(enteredPassword) {
-//     return await bcrypt.compare(enteredPassword, this.password);
-// };
-
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 module.exports = User;

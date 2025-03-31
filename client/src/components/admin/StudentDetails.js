@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table, notification } from "antd";
 import axios from "axios";
+import Navbar from "./Navbar";
 
 const StudentManagementPage = () => {
   const [students, setStudents] = useState([]); // State to store student data
@@ -54,6 +55,7 @@ const StudentManagementPage = () => {
 
   return (
     <div>
+      <Navbar/>
       <h2>Student Management</h2>
       <Table
         loading={loading}

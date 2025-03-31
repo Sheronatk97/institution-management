@@ -3,6 +3,8 @@ import React from "react";
 import { Layout, Menu, Card, Row, Col, Statistic, theme } from "antd";
 import { UserOutlined, VideoCameraOutlined, BarChartOutlined, MessageOutlined, LogoutOutlined } from "@ant-design/icons";
 import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import ViewPaymentdetails from "./ViewPayment";
+import ViewStudents from "./ViewStudents";
 // import TeamLeadCreationForm from "./TeamLeadCreate";
 // import BDMCreationForm from "./BDMCreationForm";
 // import DigitalMarketingTeamForm from "./DigitalMarketingCreate";
@@ -35,6 +37,7 @@ const FinanaceDashboard = () => {
 
   const items = [
     { key: "1", icon: <UserOutlined />, label: "Payment Details", onClick: () => navigate("/finance/payment_details") },
+    { key: "2", icon: <UserOutlined />, label: "View Students", onClick: () => navigate("/finance/viewstudents") },
     // { key: "2", icon: <BarChartOutlined />, label: "BDM", onClick: () => navigate("/hr/bdm") },
     // { key: "3", icon: <VideoCameraOutlined />, label: "Digital Marketing", onClick: () => navigate("/hr/digital-marketing") },
     // { key: "4", icon: <UserOutlined />, label: "Accountant", onClick: () => navigate("/hr/accountant") },
@@ -59,7 +62,7 @@ const FinanaceDashboard = () => {
             <Routes>
               <Route path="/" element={
                 <>
-                  <h2>HR Dashboard</h2>
+                  <h2>Finance Dashboard</h2>
                   <Row gutter={16}>
                     <Col span={6}>
                       <Card bordered={false}>
@@ -84,7 +87,10 @@ const FinanaceDashboard = () => {
                   </Row>
                 </>
               } />
-              {/* <Route path="/finance/payment_details" element={< />} /> */}
+               <Route path="/finance/viewstudents" element={< ViewStudents/>} />
+              <Route path="/finance/payment_details" element={< ViewPaymentdetails/>} />
+             
+              {/*  */}
               {/* 
               <Route path="/finance/bdm" element={<BDMCreationForm />} />
               <Route path="/finance/digital-marketing" element={<DigitalMarketingTeamForm />} />

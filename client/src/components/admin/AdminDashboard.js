@@ -21,6 +21,8 @@ import StudentPage from "../students/StudentPage";
 import FinanceManagerManagementForm from "./FinanceManager";
 import DigitalMarketerManagementForm from "./DigitalMarketCreate";
 import StudentManagementPage from "./StudentDetails";
+import GetAllUsers from "../associateConsultant/StudentsListing";
+import Navbar from "./Navbar";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -64,6 +66,7 @@ useEffect(() => {
 
   return (
     <Layout hasSider>
+      <Navbar/>
       <Sider style={siderStyle}>
         <div className="demo-logo-vertical" />
         <Menu theme="dark" mode="inline" defaultSelectedKeys={["4"]} items={items} />
@@ -84,7 +87,8 @@ useEffect(() => {
   <Route path="/admin/financeManager" element={<FinanceManagerManagementForm />} />
   <Route path="/admin/create-digital-marketing" element={<DigitalMarketerManagementForm />} />
   <Route path="/admin/createHR" element={<HRCreationForm />} />
-  <Route path="/admin/students-details" element={<StudentManagementPage/>} />
+  <Route path="/admin/students-details" element={<GetAllUsers/>} />
+  {/* <Route path="/associate_consultant/view_students" element={< />} /> */}
   
   
 </Routes>

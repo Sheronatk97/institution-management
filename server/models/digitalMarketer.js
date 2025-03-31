@@ -10,21 +10,7 @@ const digitalMarketerSchema = new mongoose.Schema({
   role: { type: String, required: true, default: "Digital Marketer" },
 }, { timestamps: true });
 
-// digitalMarketerSchema.pre('save', async function (next) {
-//   if (!this.isModified('password')) {
-//     return next();
-//   }
-  
-//   const salt = await bcrypt.genSalt(10); // Salt rounds, can adjust
-//   this.password = await bcrypt.hash(this.password, salt); // Hash the password
-//   next();
-// });
 
-
-
-// digitalMarketerSchema.methods.matchPassword = async function (enteredPassword) {
-//   return await bcrypt.compare(enteredPassword, this.password);
-// };
 
 const DigitalMarketer = mongoose.model('DigitalMarketer', digitalMarketerSchema);
 module.exports = DigitalMarketer;

@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { Table, Button, Modal, Form, Input, notification } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import axios from "axios";
+import Navbar from "./Navbar";
 const BDMManagementForm = () => {
   const [bdms, setBdms] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -75,8 +76,8 @@ const BDMManagementForm = () => {
     { title: "Name", dataIndex: "name", key: "name" },
     { title: "Email", dataIndex: "email", key: "email" },
     { title: "Phone", dataIndex: "phone", key: "phone" },
-    { title: "Location", dataIndex: "location", key: "location" },
-    { title: "Address", dataIndex: "address", key: "address" },
+    // { title: "Location", dataIndex: "location", key: "location" },
+    // { title: "Address", dataIndex: "address", key: "address" },
     {
       title: "Actions",
       key: "actions",
@@ -94,7 +95,8 @@ const BDMManagementForm = () => {
   ];
 
   return (
-    <div>
+    <div style={{'padding':'70px'}}>
+      <Navbar/>
       <h2>BDM Management</h2>
       <Button type="primary" onClick={() => showModal()} style={{ marginBottom: 16 }}>
         Create New BDM
@@ -121,12 +123,12 @@ const BDMManagementForm = () => {
           <Form.Item name="phone" label="Phone" rules={[{ required: true, message: "Enter phone number" }]}>
             <Input />
           </Form.Item>
-          <Form.Item name="location" label="Location" rules={[{ required: true, message: "Enter location" }]}>
+          {/* <Form.Item name="location" label="Location" rules={[{ required: true, message: "Enter location" }]}>
             <Input />
           </Form.Item>
           <Form.Item name="address" label="Address" rules={[{ required: true, message: "Enter address" }]}>
             <Input />
-          </Form.Item>
+          </Form.Item> */}
           <Form.Item
             name="password"
             label="Password"

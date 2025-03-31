@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Table, Button, Modal, Form, Input, notification } from "antd";
 import axios from "axios";
+import Navbar from "./Navbar";
 
 const FinanceManagerManagementForm = () => {
   const [managers, setManagers] = useState([]);
@@ -80,7 +81,8 @@ const FinanceManagerManagementForm = () => {
   ];
 
   return (
-    <div>
+    <div style={{padding:'80px'}}>
+      <Navbar/>
       <h2>Finance Manager Management</h2>
       <Button type="primary" onClick={() => showModal()} style={{ marginBottom: 16 }}>
         Create New Finance Manager

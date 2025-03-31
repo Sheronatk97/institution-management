@@ -6,6 +6,10 @@ import {
   FileTextOutlined,
 } from "@ant-design/icons";
 import StudentList from "./StudentList";
+import WhatsAppButton from "./Chat";
+import GetAllUsers from "./StudentsListing";
+import ApprovedLeaves from "./ApprovedLeaves";
+import CourseSchedule from "./CourseSchedule";
 
 // import MarketingPage from "./MarketingPage";
 // import BlogPage from "./BlogPage";
@@ -49,9 +53,17 @@ const AssociateConsultantDashboard = () => {
           <Menu.Item key="/associate_consultant/view_students" icon={<FileTextOutlined />}>
            View Students
           </Menu.Item>
-          {/* <Menu.Item key="/digital_marketing/video_editor" icon={<FileTextOutlined />}>
-           Video Editor
+          <Menu.Item key="/associate_consultant/approvedleaves" icon={<FileTextOutlined />}>
+         Approved Leaves
           </Menu.Item>
+          <Menu.Item key="/associate_consultant/courseschedule" icon={<FileTextOutlined />}>
+          Course Schedule
+          </Menu.Item>
+          <Menu.Item key="/associate_consultant/chat" icon={<FileTextOutlined />}>Chat
+          <WhatsAppButton />
+          </Menu.Item>
+       
+          {/* 
           <Menu.Item key="/digital_marketing/socialmedia" icon={<FileTextOutlined />}>
           Social Media Poster
           </Menu.Item>
@@ -79,7 +91,7 @@ const AssociateConsultantDashboard = () => {
               borderRadius: borderRadiusLG,
             }}
           >
-            <h2>Digital Marketing Dashboard</h2>
+            <h2>Associate Consultant Dashboard</h2>
 
             {/* Statistic Cards */}
             <Row gutter={16}>
@@ -127,7 +139,11 @@ const AssociateConsultantDashboard = () => {
 
             {/* Routes for Different Pages (Marketing & Blog) */}
             <Routes>
-            <Route path="/associate_consultant/view_students" element={<StudentList />} />
+            <Route path="/associate_consultant/view_students" element={<GetAllUsers />} />
+            <Route path="/associate_consultant/approvedleaves" element={<ApprovedLeaves />} />
+            <Route path="/associate_consultant/courseschedule" element={<CourseSchedule />} />
+            <Route path="/associate_consultant/chat" element={<WhatsAppButton />} />
+            
             {/* 
             <Route path="/digital_marketing/video_editor" element={<VideoEditorForm/>} />
             <Route path="/digital_marketing/socialmedia" element={<SocialMediaAdForm />} />

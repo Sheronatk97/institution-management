@@ -199,6 +199,10 @@ const VideoEditorDashboard = () => {  // Changed the name to start with uppercas
           <Menu.Item key="/video_Editor/videoUpload" icon={<FileTextOutlined />}>
              Video 
           </Menu.Item>
+
+          <Menu.Item key="/" icon={<FileTextOutlined />}>
+           Logout
+          </Menu.Item>
           
           {/* 
           <Menu.Item key="/digital_marketing/socialmedia" icon={<FileTextOutlined />}>

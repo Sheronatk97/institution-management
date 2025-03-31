@@ -11,6 +11,7 @@ const BDM = require("../models/BDM");
 
 // This function searches all models for the user by email
 const findUserByEmailAndCheckPassword = async (email) => {
+  console.log(email)
   const user =
     (await User.findOne({ email })) ||
     (await TeamLeader.findOne({ email })) ||
@@ -21,7 +22,8 @@ const findUserByEmailAndCheckPassword = async (email) => {
     (await Designer.findOne({ email })) ||
     (await BDM.findOne({ email })) ||
     (await AssociateConsultant.findOne({ email }));
-
+  console.log(user)
   return user;
+
 };
 module.exports = { findUserByEmailAndCheckPassword };

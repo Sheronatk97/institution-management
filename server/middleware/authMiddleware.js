@@ -54,4 +54,23 @@ const protect = (roles) => {
     };
 };
 
-module.exports = protect;
+
+const authMiddleware = (req, res, next) => {
+  const token = req.header('Authorization')?.replace('Bearer ', ''); // Get token from header
+
+  if (!token) {
+    return res.status(401).json({ message: 'Authorization token is required' });
+  }
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET); // Verify JWT
+    req.userId = decoded.userId; // Attach userId to the request
+    next();
+  } catch (err) {
+    return res.status(401).json({ message: 'Invalid or expired token' });
+  }
+};
+
+module.exports = {authMiddleware,protect};
+
+// module.exports = ;
